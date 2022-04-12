@@ -3,15 +3,17 @@ const rowOptions = require('./lib/rowOptions');
 module.exports = {
   extend: '@apostrophecms/widget-type',
   options: {
-    label: 'Row Widget',
+    label: 'Fila',
   },
   fields: {
     add: {
       numColumns: {
-        label: 'Selecciona cuantas columnas',
         type: "select",
+        label: "Selecciona cuantas columnas",
+        help: "Especifica cuantas columnas quieres que tenga la fila",
         choices: rowOptions.numColumns,
-        required: true
+        required: true,
+        def: '4'
       },
       verticalAlign: {
         label: 'Alinear objetos verticalmente.',
@@ -28,6 +30,7 @@ module.exports = {
       column1: {
         type: 'area',
         label: 'Columna uno',
+        help: "Agrega una columna. Puedes guardar sin agregar contenido y hacerlo contextualmente desde fuera.",
         options: {
           widgets: {
             '@bootstrap/column': {}
@@ -38,6 +41,7 @@ module.exports = {
       column2: {
         type: 'area',
         label: 'Columna dos',
+        help: "Agrega una columna. Puedes guardar sin agregar contenido y hacerlo contextualmente desde fuera.",
         options: {
           widgets: {
             '@bootstrap/column': {}
@@ -48,6 +52,7 @@ module.exports = {
       column3: {
         type: 'area',
         label: 'Columna tres',
+        help: "Agrega una columna. Puedes guardar sin agregar contenido y hacerlo contextualmente desde fuera.",
         options: {
           widgets: {
             '@bootstrap/column': {}
@@ -58,6 +63,7 @@ module.exports = {
       column4: {
         type: 'area',
         label: 'Columna cuatro',
+        help: "Agrega una columna. Puedes guardar sin agregar contenido y hacerlo contextualmente desde fuera.",
         options: {
           widgets: {
             '@bootstrap/column': {}
@@ -68,6 +74,7 @@ module.exports = {
       column5: {
         type: 'area',
         label: 'Columna cinco',
+        help: "Agrega una columna. Puedes guardar sin agregar contenido y hacerlo contextualmente desde fuera.",
         options: {
           widgets: {
             '@bootstrap/column': {}

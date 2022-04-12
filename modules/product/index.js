@@ -76,15 +76,22 @@ module.exports = {
         withType: '@apostrophecms/image',
         help: 'Seleccione la fotos que desea agregar al producto.',
       },
+      _images: {
+        label: 'Fotos',
+        type: 'relationship',
+        // Use `@apostrophecms/file` for non-image files
+        withType: '@apostrophecms/image',
+        help: 'Seleccione la fotos que desea agregar al producto.',
+      },
     },
     group: {
       basics: {
-        label: 'Basics',
-        fields: [ 'title', 'price', 'stock', 'sku' ]
+        label: 'Basicos',
+        fields: [ 'title', 'sku' ]
       },
       details: {
         label: 'Detalles',
-        fields: [ '_images', 'details' ]
+        fields: [ 'price', 'stock', '_images', 'details' ]
       }
     }
   },

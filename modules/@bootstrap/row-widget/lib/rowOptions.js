@@ -1,11 +1,7 @@
 let numColumns = [
   {
-    label: 'default',
-    value: '4',
-  },
-  {
     label: 'Una columna',
-    value: '1'
+    value: '1',
   },
   {
     label: 'Dos columnas',
