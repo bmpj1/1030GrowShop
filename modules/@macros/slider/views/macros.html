@@ -1,0 +1,33 @@
+{% macro render(images) %}
+  {% set carouselID = apos.util.generateId() %}
+
+  <div id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      {% for i in range(0, images.length ) %}
+        <li data-target="#{{ carouselID }}" data-slide-to="{{ i }}" class="{% if i === 0 %}active{% endif %}"></li>
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% for image in images %}
+        {% set imgUrl = apos.attachment.url(image) %}
+        {% if imgUrl %}
+          <div class="carousel-item {% if loop.index0 === 0 %}active{% endif %}">
+            <img class="d-block w-100" alt="{{ image._alt or '' }}" src="{{ imgUrl }}" data-holder-rendered="true">
+            {# <div class="carousel-caption d-none d-md-block">
+              <h5>Random text</h5>
+              <p>Un texto random para agregar detalles.</p>
+            </div> #} 
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <a class="carousel-control-prev" href="#{{ carouselID }}" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#{{ carouselID }}" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+{% endmacro %}

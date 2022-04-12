@@ -1,0 +1,20 @@
+{% macro render(imageObj, options= {size: 'full', alt: false, description: false, noImg: '/modules/my-apostrophe-assets/img/300x200', class: ''} ) %}
+  <div class="c-image-wrapper{% if options.class %} {{ options.class }}{% endif %}">
+    {% if imageObj === undefined or not imageObj %}
+      <img class="c-image" src="{{ options.noImg }}" alt="{{ options.alt }}">
+    {% else %}
+      {% set url = apos.attachments.url(imageObj, { size: options.size, crop: imageObj._crop }) %}
+      <img class="c-image" src="{{ url }}" alt="{{ options.alt or imageObj.title or imageObj._description}}">
+      {% if options.description === true and imageObj._description %}
+        <figcaption class="c-meta c-image-caption">
+          {{ imageObj._description }}
+        </figcaption>
+      {% elif apos.helpers._isString(options.description) %}
+        <figcaption class="c-meta c-image-caption">
+          {{ options.description }}
+        </figcaption>
+      {% endif %}
+    {% endif %}
+  </div>
+
+{% endmacro %}

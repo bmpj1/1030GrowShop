@@ -1,0 +1,108 @@
+// Use flex to keep the footer at the bottom.
+body,
+[data-apos-refreshable],
+.bp-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-apos-refreshable],
+.bp-wrapper,
+main {
+  flex-grow: 1;
+}
+
+body {
+  min-height: 100vh;
+  // Nice system fonts.
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.bp-header,
+main,
+.bp-footer {
+  width: 100%;
+  max-width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  padding: 40px 0;
+  max-width: 100%;
+  background-color: #343a40 !important;
+}
+
+.bp-footer {
+  padding: 40px 0; 
+}
+
+.bp-footer__links {
+  padding-left: 0px;
+  list-style: none;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  li:last-child { margin-right: 0; }
+}
+
+.bp-header__logo {
+  display: block;
+  width: 190px;
+  max-width: 100%;
+  object-fit: contain;
+  padding-left: 16px;
+}
+
+.bp-header__login {
+
+  &:visited {
+    color: white;
+  }
+}
+
+.bp-content {
+  max-width: 100%;
+}
+.navbar-brand {
+  &.active {
+    color: $color-turquesa !important;
+  }
+}
+.navbar-nav {
+  align-items: center;
+  justify-content: center;
+  .nav-item {
+    &.active {
+      .nav-link {
+        color: $color-turquesa !important;
+      }
+    }
+  }
+}
+
+.apos-admin-bar-wrapper {
+  background-color: #343a40 !important;
+  span {
+    color: $color-turquesa !important;
+  }
+  .apos-admin-bar {
+    background-color: #343a40 !important;
+    .apos-admin-bar__row {
+      border-bottom: 1px solid $color-turquesa !important;
+    }
+    .apos-admin-bar-spacer {
+      background-color: #343a40 !important;
+    }
+  }
+}
+
+

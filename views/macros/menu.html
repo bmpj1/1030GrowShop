@@ -1,0 +1,34 @@
+{% macro navigation(home, currentPage, user) %}
+  {# 👇 Adding our navigation wrapper. #}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+    {% set navId = apos.util.generateId() %}
+    
+    <img class="bp-header__logo" src="/images/logo.png" alt="ApostropheCMS logo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#{{ navId }}" aria-controls="{{ navId }}" aria-expanded="true" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse collapse" id="{{ navId }}">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item {% if currentPage === home._url %}active{% endif %}">
+          <a class="nav-link" href="{{ home._url }}">{{ home.title }}</a>
+        </li>
+        {% for page in home._children %}
+          <li class="nav-item {% if currentPage === page._url %}active{% endif %}">
+            <a class="nav-link" href="{{ page._url }}">{{ page.title }}</a>
+          </li>
+        {% endfor %}
+        <li>
+          <form class="form-inline my-2 my-md-0">
+            <input class="form-control" type="text" placeholder="Search">
+          </form>
+        </li>
+        <li>
+          {% if not user %}
+            <a class="bp-button bp-header__login ml-3 mt-2 mb-2" href="/login">Login</a>
+          {% endif %}
+        </li>
+      </ul>
+    </div>
+  </nav>
+{% endmacro %}

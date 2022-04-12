@@ -1,0 +1,19 @@
+{% if data.widget.numColumns == '1' %}
+  {% set numColumns = "row row-cols-1" %}
+{% elif data.widget.numColumns == '2' %}
+  {% set numColumns = "row row-cols-1 row-cols-sm-2" %}
+{% elif data.widget.numColumns == '3' %}
+  {% set numColumns = "row row-cols-1 row-cols-sm-2 row-cols-md-3" %}
+{% elif data.widget.numColumns == '4' %}
+  {% set numColumns = "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4" %}
+{% elif data.widget.numColumns == '5' %}
+  {% set numColumns = "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" %}
+{% endif %}
+
+<div class="{{ numColumns }} {{ horizontalAlign }} {{ verticalAlign }}">
+  {% for i in range(0, data.widget.numColumns) %}
+    {% set area = ['column', loop.index] | join %}
+    {% area data.widget, area %}
+  {% endfor %}
+</div>
+  
