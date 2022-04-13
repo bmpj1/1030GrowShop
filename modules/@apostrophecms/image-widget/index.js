@@ -1,0 +1,19 @@
+module.exports = {
+  options: {
+    label: 'apostrophe:image',
+    className: false,
+    icon: 'image-icon',
+    dimensionAttrs: false
+  },
+  fields: {
+    add: {
+      _image: {
+        type: 'relationship',
+        label: 'apostrophe:image',
+        max: 1,
+        required: true,
+        withType: '@apostrophecms/image'
+      }
+    }
+  }
+};

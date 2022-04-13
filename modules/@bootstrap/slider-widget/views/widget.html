@@ -1,12 +1,14 @@
 
 {% set carouselID = apos.util.generateId() %}
-
-<div id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    {% for i in range(0, data.widget.slides.length ) %}
-      <li data-target="#{{ carouselID }}" data-slide-to="{{ i }}" class="{% if i === 0 %}active{% endif %}"></li>
-    {% endfor %}
-  </ol>
+<div data-slider-widget data-widget-height="{{ data.widget.height }}" id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
+  
+  {% if data.widget.slides.length > 1 %}
+    <ol class="carousel-indicators">
+      {% for i in range(0, data.widget.slides.length ) %}
+        <li data-target="#{{ carouselID }}" data-slide-to="{{ i }}" class="{% if i === 0 %}active{% endif %}"></li>
+      {% endfor %}
+    </ol>
+  {% endif %}
   
   <div class="carousel-inner">
     {% for slide in data.widget.slides %}
@@ -16,10 +18,19 @@
           <a target="{{ slide.tabLink }}" href="{{ link }}">
         {% endif %} 
 
-        {% area slide, 'image' %}
-        <div class="carousel-caption d-none d-md-block">
-          {% area slide, 'imageText' %}
+        <div class="carousel-img">
+          {% area slide, 'image' with {
+            '@apostrophecms/image': {
+              height: data.widget.height
+            }
+          } %}
         </div>
+        
+        {% if 'text' in slide.contentStyle %}
+          <div class="carousel-caption d-none d-md-block">
+            {% area slide, 'imageText' %}
+          </div>
+        {% endif %}
 
         {% if 'link' in slide.contentStyle %}
           </a>
@@ -28,13 +39,14 @@
     {% endfor %}
   </div>
 
-  
-  <a class="carousel-control-prev {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  {% if data.widget.slides.length > 1 %}
+    <a class="carousel-control-prev {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  {% endif %}
 </div>

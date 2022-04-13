@@ -7,6 +7,35 @@ module.exports = {
   },
   fields: {
     add: {
+      height: {
+        label: 'Alto del slider',
+        help: 'Especifica el alto del slider en píxeles.',
+        type: 'select',
+        choices: [
+          {
+            label: '96px',
+            value: '96px',
+          },
+          {
+            label: '192px',
+            value: '192px',
+          },
+          {
+            label: '240px',
+            value: '240px',
+          },
+          {
+            label: '480px',
+            value: '480px',
+          },
+          {
+            label: '550px',
+            value: '550px',
+          }
+        ],
+        def: '192px',
+        required: true,
+      },
       slides: {
         label: 'Slides',
         type: 'array',
@@ -18,7 +47,8 @@ module.exports = {
               type: 'area',
               options: {
                 widgets: {
-                  '@apostrophecms/image': {},
+                  '@apostrophecms/image': {
+                  },
                 },
                 max: 1
               },
