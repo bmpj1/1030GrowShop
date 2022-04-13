@@ -14,21 +14,23 @@ module.exports = {
           widgets: {
             '@apostrophecms/rich-text': areas.richTextWidgets,
           }
-        }
+        },
+        required: true
       },
       openByDefault: {
         label: 'Abierto por defecto?',
         type: 'boolean',  
-        def: false
+        def: true
       },
       row: {
         label: "Contenido",
         type: "area",
         options: {
           widgets: {
-            '@bootstrap/main-container': {},
+            '@apostrophecms/rich-text': areas.richTextWidgets,
           }
-        }
+        },
+        required: true
       }
     }
   }

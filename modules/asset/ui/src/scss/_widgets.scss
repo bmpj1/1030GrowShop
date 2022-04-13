@@ -13,6 +13,21 @@
     display: block;
   }
 }
+/* ============= APOS BASE =======================*/
+.apos-area-widget-wrapper {
+  .apos-area-widget-inner {
+    .apos-area-widget-controls {
+      opacity: 0.3;
+      &.apos-is-visible {
+        opacity: 1;
+      }
+    }
+  }
+}
+.apos-button-group--vertical .apos-button-group__inner {
+  flex-direction: row !important;
+}
+
 
 /* ============= ACCORDION =======================*/
 /* Horizontal line */
