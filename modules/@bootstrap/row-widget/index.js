@@ -37,6 +37,15 @@ module.exports = {
           }
         },
         contextual: true,
+        if: {
+          $or: [
+            {numColumns:  '1'},
+            {numColumns:  '2'},
+            {numColumns:  '3'},
+            {numColumns:  '4'},
+            {numColumns:  '5'},
+          ]
+        }
       },
       column2: {
         type: 'area',
@@ -48,6 +57,14 @@ module.exports = {
           }
         },
         contextual: true,
+        if: {
+          $or: [
+            {numColumns:  '2'},
+            {numColumns:  '3'},
+            {numColumns:  '4'},
+            {numColumns:  '5'},
+          ]
+        }
       },
       column3: {
         type: 'area',
@@ -59,6 +76,13 @@ module.exports = {
           }
         },
         contextual: true,
+        if: {
+          $or: [
+            {numColumns:  '3'},
+            {numColumns:  '4'},
+            {numColumns:  '5'},
+          ]
+        }
       },
       column4: {
         type: 'area',
@@ -70,6 +94,12 @@ module.exports = {
           }
         },
         contextual: true,
+        if: {
+          $or: [
+            {numColumns:  '4'},
+            {numColumns:  '5'}
+          ]
+        }
       },
       column5: {
         type: 'area',
@@ -81,6 +111,11 @@ module.exports = {
           }
         },
         contextual: true,
+        if: {
+          $or: [
+            {numColumns:  '5'}
+          ]
+        }
       },
     }
   }

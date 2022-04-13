@@ -75,14 +75,7 @@ module.exports = {
         // Use `@apostrophecms/file` for non-image files
         withType: '@apostrophecms/image',
         help: 'Seleccione la fotos que desea agregar al producto.',
-      },
-      _images: {
-        label: 'Fotos',
-        type: 'relationship',
-        // Use `@apostrophecms/file` for non-image files
-        withType: '@apostrophecms/image',
-        help: 'Seleccione la fotos que desea agregar al producto.',
-      },
+      }
     },
     group: {
       basics: {

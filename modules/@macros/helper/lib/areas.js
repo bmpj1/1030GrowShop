@@ -1,8 +1,59 @@
 let headerWidgets = {};
 
-let mainWidgets = {};
+let richTextWidgets = {
+  toolbar: [
+    'undo',
+    'redo',
+    '|',
+    'styles',
+    '|',
+    'alignLeft',
+    'alignCenter',
+    'alignRight',
+    'alignJustify',
+    '|',
+    'bold',
+    'italic',
+    'strike',
+    'link',
+    '|',
+    'horizontalRule',
+    'bulletList',
+    'orderedList'
+  ],
+  styles: [
+    {
+      tag: 'p',
+      label: 'Paragraph (P)'
+    },
+    {
+      tag: 'h2',
+      label: 'Heading 2 (H2)'
+    },
+    {
+      tag: 'h3',
+      label: 'Heading 3 (H3)'
+    },
+    {
+      tag: 'h4',
+      label: 'Heading 4 (H4)'
+    }
+  ]
+};
+
+let mainWidgets = {
+  widgets: {
+    '@apostrophecms/rich-text': richTextWidgets,
+    '@apostrophecms/image': {},
+    '@apostrophecms/video': {},
+    '@bootstrap/slider': {},
+    '@bootstrap/single-accordion': {},
+  }
+};
 
 let footerWidgets = {};
+
+
 
 let choicesMarginTop = [
   {
@@ -221,6 +272,7 @@ let choicesPaddingRight = [
 ];
 
 module.exports = {
+  richTextWidgets: richTextWidgets,
   mainWidgets: mainWidgets,
   headerWidgets: headerWidgets,
   footerWidgets: footerWidgets,

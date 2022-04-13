@@ -1,0 +1,28 @@
+{% set idHeading = apos.util.generateId() %}
+{% set idCollapse = apos.util.generateId() %}
+
+{% set openByDefault = data.widget.openByDefault %}
+{% set isCollapsed = "collapsed" %}
+{% set isShown = "" %}
+
+{% if openByDefault %}
+  {% set isCollapsed = "" %}
+  {% set isShown = "show" %}
+{% endif %}
+
+<div data-single-accordion-widget id="{{ data.widget._id }}" class="accordion shadow m-3">
+  <div class="card">
+    <div id="{{ idHeading }}" class="card-header bg-white shadow-sm border-0">
+      <div class="mb-0 font-weight-bold">
+        <div href="#" data-toggle="collapse" data-target="#{{ idCollapse }}" aria-expanded="{{openByDefault}}" aria-controls="{{ idCollapse }}"
+          class="{{ isCollapsed }} d-block position-relative text-dark text-uppercase collapsible-link py-2" data-accordion="header">{% area data.widget, 'title' %}
+        </div>
+      </div>
+    </div>
+    <div id="{{ idCollapse }}" aria-labelledby="{{ idHeading }}" data-parent="#{{data.widget._id}}" class="collapse {{ isShown }}">
+      <div class="card-body">
+        {% area data.widget, 'row' %}
+      </div>
+    </div>
+  </div>
+</div>

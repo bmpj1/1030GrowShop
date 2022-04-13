@@ -1,0 +1,40 @@
+
+{% set carouselID = apos.util.generateId() %}
+
+<div id="{{ carouselID }}" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    {% for i in range(0, data.widget.slides.length ) %}
+      <li data-target="#{{ carouselID }}" data-slide-to="{{ i }}" class="{% if i === 0 %}active{% endif %}"></li>
+    {% endfor %}
+  </ol>
+  
+  <div class="carousel-inner">
+    {% for slide in data.widget.slides %}
+      <div class="carousel-item {% if loop.index0 === 0 %}active{% endif %}">
+        {% if 'link' in slide.contentStyle %}
+          {% set link =  slide._page[0]._url if slide.link === 'internalLink' else slide.url %}
+          <a target="{{ slide.tabLink }}" href="{{ link }}">
+        {% endif %} 
+
+        {% area slide, 'image' %}
+        <div class="carousel-caption d-none d-md-block">
+          {% area slide, 'imageText' %}
+        </div>
+
+        {% if 'link' in slide.contentStyle %}
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+  
+  <a class="carousel-control-prev {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next {% if data.widgets.slides.length > 1 %}d-none{% endif %}" href="#{{ carouselID }}" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

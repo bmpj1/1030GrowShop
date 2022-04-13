@@ -5,3 +5,100 @@
 .bp-image-widget {
   max-width: 100%;
 }
+
+.collapser__detail {
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+/* ============= ACCORDION =======================*/
+/* Horizontal line */
+.accordion {
+  .card-header {
+    cursor: pointer;
+    
+    .collapsible-link {
+      &:before {
+        content: '';
+        width: 14px;
+        height: 2px;
+        background: #333;
+        position: absolute;
+        top: calc(50% - 1px);
+        right: calc(1rem + -23px);
+        display: block;
+        transition: all 0.3s;
+      }
+    }
+    /* Vertical line */
+    .collapsible-link {
+      &:after {
+        content: '';
+        width: 2px;
+        height: 14px;
+        background: #333;
+        position: absolute;
+        top: calc(50% - 7px);
+        right: calc(1rem - 17px);
+        display: block;
+        transition: all 0.3s;
+      }
+    }
+    .collapsible-link[aria-expanded='true'] {
+      &:after {
+        transform: rotate(90deg) translateX(-1px);
+      }
+    }
+    .collapsible-link[aria-expanded='true'] {
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  h2 {
+    font-size: 19px;
+  }
+}
+
+/* ============= SLIDER =======================*/
+.c-slider {
+  margin-top: -10px;
+  .carousel {
+    overflow: hidden;
+    .carousel-item {
+      div[data-slideshow-items] {
+        height: auto !important;
+      }
+      h4.apos-image-widget-image-title {
+        display: none;
+      }
+      .c-slider-text {
+        position: absolute;
+        left: 50%;
+        h1 {
+          color: #fff;
+          font-size:40px;
+          line-height: 46px;
+          filter: invert(100%);
+        }
+      }
+      .o-button {
+        width: 40%;
+        text-align: center;
+        transform: unset;
+        position: absolute;
+      }
+    }
+    .carousel-control-prev, .carousel-control-next {
+      .carousel-control-next-icon, .carousel-control-prev-icon {
+        width: 30px;
+        height: 30px;
+        margin-top: -15px;
+        font-size: 30px;
+      }
+    }
+  }
+}

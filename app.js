@@ -31,6 +31,8 @@ require('apostrophe')({
     // Project modules
     '@macros/helper': {},
     '@macros/slider': {},
+    '@bootstrap/slider-widget': {},
+    '@bootstrap/single-accordion-widget': {},
     '@bootstrap/column-widget': {},
     '@bootstrap/row-widget': {},
     '@bootstrap/main-container-widget': {},

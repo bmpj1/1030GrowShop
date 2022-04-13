@@ -1,0 +1,24 @@
+{% fragment content(slides, size) %}
+  {% for slide in slides %}
+    <div class="carousel-item {{ slide.contentStyle }}">
+      {# Load image widget #}
+      {% set image = slide.image %}
+      {% area slide, 'image' %}
+
+      {# Load text widget #}
+      {% if 'text' in slide.contentStyle %}
+        <div class= "c-slider-text">
+          {% area slide, 'imageText' %}
+
+          {# Load button widget #}
+          {% if 'button' in slide.contentStyle %}
+            {% set link =  slide._page._url if slide.link === 'internalLink' else slide.url %}
+            <div class= "o-button">
+              <a target="{{ slide.tabLink }}" href="{{ link }}"> {{ slide.buttonText }} </a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endfragment %}
