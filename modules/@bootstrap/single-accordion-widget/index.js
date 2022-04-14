@@ -28,6 +28,7 @@ module.exports = {
         options: {
           widgets: {
             '@apostrophecms/rich-text': areas.richTextWidgets,
+            '@bootstrap/single-accordion': {}
           }
         },
         required: true

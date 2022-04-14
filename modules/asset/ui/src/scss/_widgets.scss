@@ -33,6 +33,7 @@
 /* Horizontal line */
 .accordion {
   .card-header {
+    padding: 0px 0px;
     cursor: pointer;
     
     .collapsible-link {
@@ -43,9 +44,12 @@
         background: #333;
         position: absolute;
         top: calc(50% - 1px);
-        right: calc(1rem + -23px);
+        right: calc(2rem + -23px);
         display: block;
         transition: all 0.3s;
+      }
+      .apos-area {
+        padding: 4px 24px;
       }
     }
     /* Vertical line */
@@ -57,7 +61,7 @@
         background: #333;
         position: absolute;
         top: calc(50% - 7px);
-        right: calc(1rem - 17px);
+        right: calc(2rem - 17px);
         display: block;
         transition: all 0.3s;
       }

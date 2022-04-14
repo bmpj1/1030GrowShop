@@ -10,12 +10,12 @@
   {% set isShown = "show" %}
 {% endif %}
 
-<div data-single-accordion-widget id="{{ data.widget._id }}" class="accordion shadow m-3">
+<div data-single-accordion-widget id="{{ data.widget._id }}" class="accordion shadow">
   <div class="card">
     <div id="{{ idHeading }}" class="card-header bg-white shadow-sm border-0">
       <div class="mb-0 font-weight-bold">
         <div href="#" data-toggle="collapse" data-target="#{{ idCollapse }}" aria-expanded="{{openByDefault}}" aria-controls="{{ idCollapse }}"
-          class="{{ isCollapsed }} d-block position-relative text-dark text-uppercase collapsible-link py-2" data-accordion="header">{% area data.widget, 'title' %}
+          class="{{ isCollapsed }} d-block position-relative collapsible-link" data-accordion="header">{% area data.widget, 'title' %}
         </div>
       </div>
     </div>
