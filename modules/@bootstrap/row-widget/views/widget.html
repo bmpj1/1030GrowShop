@@ -10,7 +10,7 @@
   {% set numColumns = "row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5" %}
 {% endif %}
 
-<div class="{{ numColumns }} {{ horizontalAlign }} {{ verticalAlign }}">
+<div class="{{ numColumns }} {{ horizontalAlign }} {{ verticalAlign }} justify-content-around">
   {% for i in range(0, data.widget.numColumns) %}
     {% set area = ['column', loop.index] | join %}
     {% area data.widget, area %}
